@@ -1,33 +1,21 @@
-function getWeekDay() {
-    return new Intl.DateTimeFormat(`pt-br`,{weekday: "long"}).format(new Date())
+type Props = {
+    name:string
+    avatar: string
+    roles: string[]
+    adress?: string
 }
-
-export const Person = () => {
-    const data: {name:string, lastName:string, avatar:string, roles: string[]} =  {
-        name: "Elon",
-        lastName: "Musk",
-        avatar: "#",
-        roles: [
-            "CEO da Tesla", "CEO da SpaceX"
-        ]
-    }
-    
+export const Person = ({name, avatar, roles}: Props) => {
     return (
         <>
             <h1 style={{color: "red", fontSize: "30px"}} >
-                Nome: {`
-                        ${data.name} ${data.lastName}
-                    `}</h1>
+                Nome: {name}</h1>
             <img 
-                src={data.avatar} 
-                alt={`
-                    ${data.name} ${data.lastName}
-                `} />
+                src={avatar} 
+                alt={name} />
             <ul>
-                <li>{data.roles[0]}</li>
-                <li>{data.roles[1]}</li>
+                <li>{roles[0]}</li>
+                <li>{roles[1]}</li>
             </ul>
-            <h1>Hoje é: {getWeekDay()}</h1>
         </>
     )
 }

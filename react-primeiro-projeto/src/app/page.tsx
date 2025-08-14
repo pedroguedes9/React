@@ -1,16 +1,21 @@
-import { Person } from "@/components/person"
-import { Card } from "@/components/card"
+import { peopleList } from "@/data/peapleList"
 function Page() {
-  return (<div>
-    <h1 className="bg-amber-600 text-4xl">Olá</h1>
-    <h2>mundo</h2>
-    <Card>
-      <>
-        <h3 className="text-3xl font-bold italic">Frase de efeito</h3>
-        <p className="text-right text-sm">Autor Desconhecido</p>
-      </>
-    </Card>
-  </div>)
-
+  const programadores = peopleList.filter(person => person.profession === "programador")
+  return (
+    <div>
+      <h1 className=" text-4xl">Olá Mundo</h1>
+      <h2>Frase qualquer</h2>
+      {programadores.length > 0 && 
+        <div>
+          <h3>lista de químicos:</h3>
+          <ul>
+            {programadores.map(person => 
+              <li>{person.name}</li>
+            )}
+          </ul>
+        </div>
+      }
+    </div>
+  )
 }
 export default Page

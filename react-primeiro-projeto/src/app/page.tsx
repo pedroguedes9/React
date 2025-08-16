@@ -1,20 +1,8 @@
-import { peopleList } from "@/data/peapleList"
+import { Greeting } from "@/components/greeting"
 function Page() {
-  const programadores = peopleList.filter(person => person.profession === "programador")
   return (
-    <div>
-      <h1 className=" text-4xl">Olá Mundo</h1>
-      <h2>Frase qualquer</h2>
-      {programadores.length > 0 && 
-        <div>
-          <h3>lista de químicos:</h3>
-          <ul>
-            {programadores.map(person => 
-              <li>{person.name}</li>
-            )}
-          </ul>
-        </div>
-      }
+    <div className="w-screen h-screen flex flex-row items-center justify-center bg-gradient-to-r from-sky-500 to-indigo-500">
+      <Greeting/>
     </div>
   )
 }

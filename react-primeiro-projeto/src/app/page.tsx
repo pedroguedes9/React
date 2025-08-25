@@ -1,20 +1,15 @@
 "use client"
 
-import { FormEvent } from "react"
-
 function Page() {
-  const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    alert("eae")
-  }
-
+  let count = 0
+  const handleClickButton = () => {
+    count ++
+    console.log(count)
+  } 
   return (
-    <div className="container mx-auto w-screen h-screen flex justify-center gap-3 items-center flex-col  ">
-      <h1 className="text-5xl ">Form de login</h1>
-      <form onSubmit={handleFormSubmit}>
-        <input type="text" className="bg-white" />
-        <input type="submit" value="enviar" />
-      </form>
+    <div className="container mx-auto w-screen h-screen flex flex-col justify-center items-center">
+      <p>{count}</p>
+      <button onClick={handleClickButton} className="bg-blue-500 p-3">+1</button>
     </div>
   )
 }

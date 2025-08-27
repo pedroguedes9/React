@@ -1,10 +1,12 @@
 "use client"
 
+import { useState } from "react"
+
 function Page() {
-  let count = 0
+  const [count, setcount] = useState(0)
+
   const handleClickButton = () => {
-    count ++
-    console.log(count)
+    setcount(count + 1)
   } 
   return (
     <div className="container mx-auto w-screen h-screen flex flex-col justify-center items-center">

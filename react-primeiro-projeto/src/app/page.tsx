@@ -3,15 +3,17 @@
 import { useState } from "react"
 
 function Page() {
-  const [count, setcount] = useState(0)
-
-  const handleClickButton = () => {
-    setcount(count + 1)
-  } 
+  const [count, setCount] = useState(0)
+  const handleButtonClick = () => {
+    setCount(prev => prev + 1)
+    setCount(prev => prev + 1)
+    setCount(prev => prev + 1)
+    console.log(count)
+  }
   return (
     <div className="container mx-auto w-screen h-screen flex flex-col justify-center items-center">
       <p>{count}</p>
-      <button onClick={handleClickButton} className="bg-blue-500 p-3">+1</button>
+      <button onClick={handleButtonClick} className="bg-blue-500 p-3 rounded-md">+2</button>
     </div>
   )
 }

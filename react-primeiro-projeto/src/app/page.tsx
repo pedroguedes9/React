@@ -1,39 +1,25 @@
 "use client"
 
-import { Modal } from "@/components/Modal"
-import { PhotoItem } from "@/components/PhotoItem"
-import { photoList } from "@/data/photoList"
+import { questions } from "@/data/questions"
 import { useState } from "react"
 
+
+
+
 function Page() {
-  const [showModal, setShowModal] = useState(false)
-  const [imageOfModal, setImageOfModal] = useState("")
-  const openModal = (id: number) => {
-    for(let i in photoList) {
-      if(photoList[i].id === id) {
-        setImageOfModal(photoList[i].url)
-      }
-    }
-    setShowModal(true)
-  }
-  const closeModal = () => {
-    setShowModal(false)
-  }
+  const title = "Quiz de culinária"
+  const [currentQuestion, setCurrentQuestion] = useState(0)
   return (
-    <div className="mx-2 flex flex-col justify-center items-center">
-      <h1 className="text-center text-3xl font-bold my-10">Fotos intergaláticas</h1>
-      <section className="container max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
-        {photoList.map(item => (
-          <PhotoItem 
-          key={item.id}
-          photo={item}
-          onClick={() => {openModal(item.id)} } 
-          />
-        ))}
-      </section>
-      {showModal && (
-        <Modal image={imageOfModal} closeModal={closeModal} />
-      )}
+    <div className="bg-blue-600 h-screen w-full flex justify-center items-center ">
+      <div className="w-full max-w-xl rounded-md bg-white text-black shadow shadow-black">
+        <h1 className=" p-5 text-2xl font-bold border-b border-gray-300">{title}</h1>
+        <div className="p-5" >
+          ...
+          </div>
+        <div className="p-5 shadow text-center border-t border-gray-300" >
+          {currentQuestion + 1} de {questions.length} pergunta{questions.length >= 2 && "s"}
+        </div>
+      </div>
     </div>
   )
 }

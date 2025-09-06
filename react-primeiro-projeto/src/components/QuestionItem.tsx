@@ -12,7 +12,10 @@ export const QuestionItem = ({question, count, onAnswer}: Props) => {
     const checkQuestion = (key:number) => {
         if(selectedAnswer === null) {
             setSelecedAnswer(key)
-            onAnswer(key)
+            setTimeout(() => {
+                onAnswer(key)
+                setSelecedAnswer(null)
+            }, 2000)
         }
 
     }

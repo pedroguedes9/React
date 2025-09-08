@@ -1,4 +1,5 @@
-import { Item } from "@/types/Item";
+import { Item } from "@/types/Item"
+
 type AddAction = {
     type: "add",
     payload: {
@@ -35,20 +36,18 @@ export const listReducer = (list: Item[], action:ListActions) => {
                 done: false
             }]
         case "editText":
-            list.map((item) => {
+            return list.map((item) => {
                 if(item.id === action.payload.id) {
-                    return item.text === action.payload.newText
-                } else {
-                    return item
-                }
+                    item.text = action.payload.newText
+                } 
+                return item
             })
         case "toggleDone":
-            list.map((item) => {
+            return list.map((item) => {
                 if(item.id === action.payload.id) {
                     item.done = !item.done
-                } else {
-                    return item
-                }
+                } 
+                return item
             })
         case "removeItem":
             return list.filter(item => item.id !== action.payload.id)
